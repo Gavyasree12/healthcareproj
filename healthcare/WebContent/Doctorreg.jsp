@@ -128,7 +128,7 @@ margin-top:-20px;
 </style>
 <body>
 
-<form action="Doctorregtest.jsp" onsubmit="return validate()" name="reg">
+<form action="Doctorserv" onsubmit="return validate()" method="post" name="reg">
   <div class="form">
      <center><h3>Sign Up</h3></center>
     
@@ -167,7 +167,7 @@ margin-top:-20px;
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
-          <center><p>Already a user? <a href="Login.jsp" style="color:gray">SignIn</a>.</p></center>
+          <center><p>Already a user? <a href="Doctorsignin.jsp" style="color:gray">SignIn</a>.</p></center>
       
     </div>
     </div>

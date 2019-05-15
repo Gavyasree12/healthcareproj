@@ -86,40 +86,47 @@ nav ul li a:hover
     padding: 60px;   
 }
 .team-section h1{
+  width: 500px;
+  margin: 20px 100px;
+ 	border-radius: 10px;
+ 	background-color: rgba(0,0,0,0.4);
     text-transform: uppercase;
     margin-bottom: 40px;
-    color: #000;
-    font-size: 40px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 .border{
     display: block;
     margin: auto;
     width: 160px;
     height: 3px;
-    background:#db0a5b;
     margin-bottom: 40px;   
 }
 .ps{
-    margin-bottom: 40px;
+    margin-bottom: 100px;
+    
 }
 .ps a{
     display: inline-block;
     margin: 0px auto 30px;
-    width: 150px;
-    height: 200px;
     overflow: hidden;
-    border-radius:50%;
-    border: 3px groove #6495ED;
+    border-radius:20%;
+    transition: 0.4s all;
+ 	background-color: rgba(0,0,0,0.4);
+    text-transform: uppercase;
+     width: 200px;
+     padding-top:30px;
+    height: 100px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-decoration:none;
+    font-family: 'Roboto', sans-serif;
   
 }
-.ps a img{
-    width: 100%;
-    height: 100%;
-    margin: 0px auto 30px;
-filter: none;
-    transition: 0.4s all;
-}
-.ps a:hover > img{
+
+.ps a:hover{
    
 filter: grayscale(100%);
 }
@@ -148,24 +155,28 @@ filter: grayscale(100%);
 <body>
 <nav>
 <div class="logo">
-<img src="./pics/logo2.png"><a href="#dsd"><% String username=request.getParameter("fname");
-out.print(username);
-%></a>
+<img src="./img/logo2.png">
 <ul>
 <li>  <a href="#home" class="active">Home</a></li>
   <li><a href="#band" >Your Appointments</a></li>
   <li><a href="#dsd">Our Services</a></li>
- <li><a href="#Login" >About us</a></li>	
+ <li><a href="Logoutserv" >Logout</a></li>
  </ul>
+ <b><a href="#dsf"><% HttpSession sessio=request.getSession(false);  
+ if(sessio!=null){  
+ String name=(String)sessio.getAttribute("userid");  
+ out.print(name);}
+ else
+ {}%></a></b>
  <div class="team-section">
             <h1>
               Select The Type of care
             </h1>
             <span class="border"></span>
             <div class="ps">               
-               <a href="#p1" ><img src="./pics/outpatient.jpg" alt="Image 1"></a>
-               <a href="#p2" ><img src="./pics/inpatient.jpg" alt="Image 2"></a>
-               <a href="#p2" ><img src="./pics/Emergency.jpg" alt="Image 2"></a>
+               <a href="#p1" >In-Patient</a>
+               <a href="#p2" >Out-Patient</a>
+               <a href="#p2" >Emergency</a>
                
             </div>
          
@@ -175,16 +186,9 @@ out.print(username);
 
 <section class="sec1"><section>
 
-<img class="mySlides" src=".\pics\care.jpg"
-  style="width:100%">
-  <img class="mySlides" src=".\pics\64.jpg"
-  style="width:100%">
-  <img class="mySlides" src=".\pics\hand2.jpg"
-  style="width:100%">
-    <img class="mySlides" src=".\pics\hand3.jpg"
+  <img class="mySlides" src=".\img\64.jpg"
   style="width:100%">
   
-
  </section>
 
 <footer class="w3-container w3-padding-16 w3-center w3-black w3-xlarge">

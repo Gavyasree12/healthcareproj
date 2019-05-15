@@ -130,18 +130,18 @@ margin-top:-15px;
 <body>
 <div class="logo">
 <img src="./img/logo2.png">
-<form action="/action_page.php">
+<form action="Doctorloginserv" method="post">
 <div class="form">
   <div class="container">
         <h1>Sign In</h1>
     
     <hr>
-   <input type="text" placeholder="Enter Email or Username" name="email" required>
+   <input type="text" placeholder="Enter User ID" name="userid" required>
 
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="password" required>
      
     <div class="clearfix">
-      <button type="button" class="signinbtn"><font size="3" face="sans-serif">SignIn</font></button>
+      <button type="submit" class="signinbtn"><font size="3" face="sans-serif">SignIn</font></button>
       
       </div>
      Not registered? <a href="Doctorreg.jsp"><font size="3" color="white" face="comic sans ms"> Sign Up!</font></a></p>
