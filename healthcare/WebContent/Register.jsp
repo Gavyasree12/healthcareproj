@@ -8,7 +8,7 @@
 </head>
 <style>
 body {
-background-image: url("./img/bear.jpg");
+background-image: url("./img/care.png");
 background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -97,7 +97,7 @@ filter: blur(8px);
   display: table;
 }
 .form {
-  transform: translate(80%,0%);
+  transform: translate(0%,0%);
   position: relative;
   z-index: 1;
   background: #FFFFFF;
@@ -197,7 +197,7 @@ function validate()
         return false;
     }
     if ((phone.value == "")||((phone.value).length)<10) {
-        window.alert("Please enter the valid number");
+        window.alert("Please enter the valid phone number");
         phone.focus();
         return false;
     }

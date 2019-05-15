@@ -10,7 +10,7 @@
 <!--         <link rel="stylesheet" type="text/css" href="./style/about.css">
  -->        <style type="text/css">
         body{
-	 background-image:url('./img/pata.jpg');
+	 background-image:url('./img/pata33.jpg');
    background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -26,13 +26,13 @@
 .team-section{
     overflow: hidden;
     text-align: center;
-   
+    margin-top: 50px;
     padding: 60px;   
 }
-.team-section h1{
-    margin-bottom: 60px;
+.team-section h2{
+    margin-bottom: 50px;
     color: #fff;
-    font-size: 45px;
+    font-size: 35px;
     font-family: sans-serif;
 }
 .border{
@@ -40,7 +40,7 @@
     margin: auto;
     width: 160px;
     height: 3px;
-    background:#db0a5b;
+    
     margin-bottom: 40px;   
 }
 .ps{
@@ -49,7 +49,7 @@
 .ps a{
     display: inline-block;
     margin: 0 30px;
-    width: 200px;
+    width: 150px;
     hight:200px;
     overflow: hidden;
     background: #fff;
@@ -58,11 +58,13 @@
 }
 .ps a img{
     width: 100%;
-    filter: grayscale(100%); 
     transition: 0.4s all;
+        filter: none;
+    
 }
 .ps a:hover > img{
-    filter: none;
+    filter: sepia(60%); 
+
 }
 .section{
     width: 600px;
@@ -87,13 +89,14 @@
     </head>
     <body>
         <div class="team-section">
-            <h1>
+            <h2>
               Pat-a-Doc HealthCare
-            </h1>
+            </h2
+            >
             <span class="border"></span>
             <div class="ps">               
-               <a href="Login.jsp" ><img src="./img/mann.jpg" alt="Image 1"></a>
-               <a href="Doctorsignin.jsp" ><img src="./img/docc.jpg" alt="Image 2"></a>
+               <a href="Login.jsp" ><img src="./img/Patient.png" alt="Image 1"></a>
+               <a href="Doctorsignin.jsp" ><img src="./img/Doctor.jpg" alt="Image 2"></a>
             </div>
          
         </div>

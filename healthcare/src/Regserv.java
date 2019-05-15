@@ -63,13 +63,13 @@ public class Regserv extends HttpServlet {
             Random random=new Random();
             int rand=random.nextInt(999);
             String password=fname.substring(0,2)+lname.substring(lname.length()-2,lname.length())+phone.substring(0,1)+phone.substring(2,3)+phone.substring(4,5)+phone.substring(6,7)+phone.substring(8,9);
-            String appid="App"+rand;
-            String userid=fname.substring(0,3)+rand;
+            //String appid="App"+rand;
+            String userid=fname.toUpperCase()+rand;
             
 
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
-        String sql="insert into bhaskar.patientdet values(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into bhaskar.patientdet values(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stat=con.prepareStatement(sql);
         stat.setString(1, fname);
         stat.setString(2, lname);    
@@ -80,8 +80,7 @@ public class Regserv extends HttpServlet {
         stat.setString(7, bg);
         stat.setString(8, addr);
         stat.setString(9, userid);
-        stat.setString(10, appid);
-        stat.setString(11, password);
+        stat.setString(10, password);
         stat.executeUpdate();
         stat.executeUpdate();
          request.getRequestDispatcher("change.jsp").include(request,response);        

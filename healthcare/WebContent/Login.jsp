@@ -22,7 +22,7 @@ input[type=text], input[type=password] {
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+  background: #D3D3D3;
    border-radius:30px;
   border:none;
   border-color: lightblue;
@@ -37,7 +37,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 hr {
-  border: 1px solid #f1f1f1;
+  border: 1px solid #D3D3D3;
   margin-bottom: 25px;
 }
 
@@ -100,9 +100,9 @@ button:hover {
   padding: 45px;
   text-align: center;
   background-color:blue;
-  background: rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.7);
   font-family:sans-serif;
-  color:white;
+  color:gray;
   border-radius:20px;
   border:none;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -135,16 +135,16 @@ margin-top:-15px;
         <h1>Sign In</h1>
     
     <hr>
-   <input type="text" placeholder="Enter Email or Username" name="email" required>
+   <input type="text" placeholder="Enter User ID" name="userid" required>
 
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="password" required>
      
     <div class="clearfix">
       <button type="submit" class="signinbtn"><font size="3" face="sans-serif">SignIn</font></button>
       
       </div>
-     Not registered? <a href="Register.jsp"><font size="3" color="white" face="comic sans ms"> Sign Up!</font></a></p>
-      <a href="#dee"><font size="3" color="white" face="comic sans ms"> Forgot password?</font></a></p>
+     Not registered? <a href="Register.jsp"><font size="3" color="gray" face="comic sans ms"> Sign Up!</font></a></p>
+      <a href="#dee"><font size="3" color="gray" face="comic sans ms"> Forgot password?</font></a></p>
  </div>
  </div>
    </div>
