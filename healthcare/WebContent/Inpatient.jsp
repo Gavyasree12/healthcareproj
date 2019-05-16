@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>B-APS</title>
-
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="./style/date.css">
 <!-- <link rel="stylesheet" href="./style/about.css" > -->
 <link rel="stylesheet" href="./style/w3.css" >
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -19,7 +22,7 @@ background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
+ 
 	padding:0;
 	font-family: sans-serif;
 }
@@ -37,7 +40,6 @@ nav
 	
 }
 
-
 nav .logo img
 {
 	margin-left: -60px;
@@ -45,7 +47,6 @@ nav .logo img
 	transition: .5%;
 	
 }
-
 nav ul
 {
 	
@@ -55,7 +56,6 @@ nav ul
 	display:flex;
 	
 }
-
 nav ul li
 {
 	list-style:none;
@@ -81,7 +81,7 @@ nav ul li a:hover
 	background: white;
 	
 }
-input[type=text],input[type=address], input[type=password], input[type=number],input[type=date] {
+select,input[type=text],input[type=address], input[type=password], input[type=number],input[type=date] {
   width: 100%;
   padding: 5px;
   margin: 5px 0 22px 0;
@@ -91,24 +91,20 @@ input[type=text],input[type=address], input[type=password], input[type=number],i
   border-radius:20px;
   border:none;
 }
-
-input[type=text]:focus, input[type=password]:focus,input[type=address]:focus,input[type=number]:focus {
-  background-color: #F5A262;
+select:focus,input[type=text]:focus, input[type=password]:focus,input[type=address]:focus,input[type=number]:focus {
+  background-color: #C1C1C1;
   outline: none;
   border-radius:20px;
   border:none;
 }
-
 text area{
 border-radius:10px;
   border:none;
 }
-
 hr {
   border: 0px solid #f1f1f1;
   margin-bottom: 25px;
 }
-
 /* Set a style for all buttons */
 button {
   background-color: #4CAF50;
@@ -123,23 +119,19 @@ button {
   border:none;
   background-color: #00cc66;
 }
-
 button:hover {
   opacity:1;
 }
-
 /* Extra styles for the cancel button */
 .cancelbtn {
   padding: 14px 20px;
   background-color: #FF5733 ;
 }
-
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn, .signinbtn {
   float: left;
   width: 50%;
 }
-
 /* Add padding to container elements */
 .container {
   padding: 16px;
@@ -180,7 +172,7 @@ filter: blur(8px);
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
   .cancelbtn, .signupbtn {
-     width: 100%;
+ 	width: 100%;
   }
 }
 .foot{
@@ -202,38 +194,53 @@ out.print(username);
  </ul>
  <form action="Regserv" onsubmit="return validate()" name="reg" method="post">
   <div class="form">
-     <center><h3>In-Patient Appointment Form</h3></center>
-    
-    
-    <input type="text" placeholder="Enter your firstname" name="fname">
-    </br>
-    
-    <input type="date"  name="dob" placeholder="Select DOB" >
-   
-    </br>
-    <input type="number" placeholder="Enter your phone" name="phone" >
-    </br>
-     
-    <input type="text" placeholder="Enter Blood group" name="bg" >
-    </br>
-     <input type="address" placeholder="Enter Address" name="addr" >
-    </br>
-     <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
-    <div class="clearfix">
-      <button type="submit" class="signupbtn">Get Appointment</button>
-    </div>
-    </div>
+ 	<center><h3>In-Patient Appointment Form</h3></center>
+	
+	Choose PAT illness:
+<select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+  <option value=""></option>
+  <option value="Orthopaedic">Orthopedics </option>
+  <option value="Blood Cancer">Blood Cancer</option>
+  <option value="Lung Cancer">Lung Cancer</option>
+  <option value="Bone Marrow">Bone Marrow</option>
+  <option value="Open Heart Surgeries">Open Heart Surgeries</option>
+  <option value="Kidney">Kidney</option>
+  <option value="Brain Surgeries">Brain Surgeries</option>
+ <option value="Thyroid">Thyroid</option>
+</select>
+<br>
+Choose Hospital Name:
+<select id="slct2" name="slct2"></select>
+	
+	Appointment Date:<input type="text" name="appdate" id="org">
+	<br>
+	Select the number of days:
+	<select name="days">
+  <option value=""></option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+ <option value="8">8</option>
+ <option value="9">9</option>
+ <option value="10">10</option>
+</select>
+<br>
+   Prescription(operation) Details:
+   <input type="text" name="pres">
+   <br>
+   <button type="submit" class="">Proceed to Payment</button>
+	</div>
 </div>
-  
+ 
 </form>
-        </div>
+    	</div>
  </div>
-
 </nav>
 <div class="foot">
-
 <footer class="w3-container w3-padding-16 w3-center w3-black w3-xlarge" >
   <a href="#"><i class="fa fa-facebook-official"></i></a>
   <a href="#"><i class="fa fa-pinterest-p"></i></a>
@@ -245,52 +252,63 @@ out.print(username);
   </p>
 </footer>
 </div>
-
  <script>
-function validate()
+$(document).ready (function(){
+	$("#org").datepicker({
+    	
+    	minDate: 0,
+    	dateFormat:'dd/mm/yy',
+    	maxDate: 10
+    	
+	})
+})
+function populate(s1,s2)
 {
-    var fname = document.forms["reg"]["fname"];
-    var lname = document.forms["reg"]["lname"];
-    var dob = document.forms["reg"]["dob"];
-    var phone = document.forms["reg"]["phone"];
-    var email=document.forms["reg"]["email"];
-    var addr=document.forms["reg"]["addr"];
-    
-    
-    if (fname.value == "") {
-        window.alert("Please enter your first name");
-        fname.focus();
-        return false;
-    }
-    if (lname.value == "") {
-        window.alert("Please enter your Last name");
-        lname.focus();
-        return false;
-    }
-    if (dob.value == "") {
-        window.alert("Please enter your Date of birth name");
-        dob.focus();
-        return false;
-    }
-    if ((phone.value == "")||((phone.value).length)<10) {
-        window.alert("Please enter the valid number");
-        phone.focus();
-        return false;
-    }
-    if (email.value == "") {
-        window.alert("Please enter valid Email");
-        email.focus();
-        return false;
-    }
-    if (addr.value == "") {
-        window.alert("Please enter the Address");
-        addr.focus();
-        return false;
-    }
-        return true;
-    }
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = " ";
+	if(s1.value == "Orthopaedic")
+	{
+    	
+    	var optionArray = ["|","Chennai Orthopaedic Hospital|Chennai Orthopaedic Hospital","Vijay Multispeciality Hospital|Vijay Multispeciality Hospital","Nirmala Multi-speciality Hospital|Nirmala Multi-speciality Hospital","Apallo Orthopaedic General Hospital|Apallo Orthopaedic General Hospital"];
+	}
+	else if(s1.value == "Blood Cancer")
+	{
+    	var optionArray = ["|","Coimbatore Multispeciality Hospital|Coimbatore Multispeciality Hospital","M.Abhi Blood Cancer Hospital|M.Abhi Blood Cancer Hospital","Dharamshila Superspeciality Hospital|Dharamshila Superspeciality Hospital","B.R.A Institute-Rotary Cancer Hospital|B.R.A Institute-Rotary Cancer Hospital"];
+	}
+	else if(s1.value == "Lung Cancer")
+	{
+    	var optionArray = ["|","Apollo Health City|Apollo Health City","American Oncology Institute|American Oncology Institute","Omega Hospital|Omega Hospital","Yashoda Superspeciality Hospital|Yashoda Superspeciality Hospital"];
+	}
+	else if(s1.value == "Bone Marrow")
+	{
+    	var optionArray = ["|","KMCH Speciality Hospital|KMCH Speciality Hospital","Sudha Bone Marrow Transplant Hospitals|Sudha Bone Marrow Transplant Hospitals","Arun Bone Diseases specialists Hospital|Arun Bone Diseases specialists Hospital","Arun orthopedic hospital|Arun orthopedic hospital"];
+	}
+	else if(s1.value == "Open Heart Surgeries")
+	{
+    	var optionArray = ["|","Lotus Hospital|Lotus Hospital","Nova Speciality Hospitals|Nova Speciality Hospitals","Amulya Cosmetic Surgery Clinic|Amulya Cosmetic Surgery Clinic","Indraprastha Apollo Hospital|Indraprastha Apollo Hospital"];
+	}
+	else if(s1.value == "Kidney")
+	{
+    	var optionArray = ["|","Bhatia Global Hospital & Endosurgery Hospital|Bhatia Global Hospital & Endosurgery Hospital","Preeth Urology & Kidney Hospital|Preeth Urology & Kidney Hospital","Aephrous Plus Kidney Hospital|Aephrous Plus Kidney Hospital","Sreedhar Kidney Multi-Speciality Hospital-ER|Sreedhar Kidney Multi-Speciality Hospital-ER"];
+	}
+	else if(s1.value == "Brain Surgeries")
+	{
+    	var optionArray = ["|","PARAS BRAIN NEUROSURGERY HOSPITAL|PARAS BRAIN NEUROSURGERY HOSPITAL","BRAHM SHAKTI HOSPITAL & RESEARCH CENTRE|BRAHM SHAKTI HOSPITAL & RESEARCH CENTRE","INDIAN SPINAL INJURIES CENTRE|INDIAN SPINAL INJURIES CENTRE","LOS-ANGEL Brain Neurosurgery Hospital Hydrabad|LOS-ANGEL Brain Neurosurgery Hospital Hydrabad"];
+	}
+	else if(s1.value == "Thyroid")
+	{
+    	var optionArray = ["|","Fortis Flt. Lt. Rajan Dhall Hospital|Fortis Flt. Lt. Rajan Dhall Hospital","Thyroidectomy Surgery Hospital|Thyroidectomy Surgery Hospital","Viezec Medical Health Care|Viezec Medical Health Care","KIMS Multi-Speciality Hospital|KIMS Multi-Speciality Hospital"];
+	}
+	for(var option in optionArray)
+	{
+    	var pair = optionArray[option].split("|");
+    	var newOption = document.createElement("option");
+    	newOption.value = pair[0];
+    	newOption.innerHTML = pair[1];
+    	s2.options.add(newOption);
+	}
+}
 </script>
-
 </body>
 </html>
-
