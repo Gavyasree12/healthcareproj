@@ -225,7 +225,7 @@ out.print(username);
   <li><a href="#dsd">Our Services</a></li>
  <li><a href="#Login" >About us</a></li>	
  </ul>
- <form action="Outpatientserv" method="post">
+ <form action="Outpatientserv" onsubmit="return validation()" name="op" method="post">
   <div class="form">
      
      <center><h3>Out-Patient Appointment Form</h3></center>
@@ -333,6 +333,40 @@ $(document).ready (function(){
 		
 	})
 })
+
+function validation(){
+	var symptoms= document.forms["op"]["symptoms"];
+	var docname= document.forms["op"]["docname"];
+	var appdate= document.forms["op"]["appdate"];
+	var apptime= document.forms["op"]["apptime"];
+	var docdesc= document.forms["op"]["docdesc"];
+	
+	if(symptoms.value==""){
+		window.alert("please select the symptoms");
+		symptoms.focus();
+		return false;
+	}
+	if(docname.value== ""){
+		window.alert("please select the Doctor name");
+		docname.focus();
+		return false;
+	}if(appdate.value== ""){
+		window.alert("please select the appointment date");
+		appdate.focus();
+		return false;
+	}if(apptime.value== ""){
+		window.alert("please select the appointment time");
+		apptime.focus();
+		return false;
+	}if(docdesc.value== ""){
+		window.alert("please enter the some description");
+		docdesc.focus();
+		return false;
+	}
+	
+}
 </script>
 </body>
 </html>
+
+

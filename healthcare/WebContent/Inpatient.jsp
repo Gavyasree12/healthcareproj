@@ -197,7 +197,7 @@ out.print(username);
  	<center><h3>In-Patient Appointment Form</h3></center>
 	
 	Choose PAT illness:
-<select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+<select id="slct1" name="illness" onchange="populate(this.id,'slct2')">
   <option value=""></option>
   <option value="Orthopaedic">Orthopedics </option>
   <option value="Blood Cancer">Blood Cancer</option>
@@ -210,7 +210,7 @@ out.print(username);
 </select>
 <br>
 Choose Hospital Name:
-<select id="slct2" name="slct2"></select>
+<select id="slct2" name="hosname"></select>
 	
 	Appointment Date:<input type="text" name="appdate" id="org">
 	<br>
@@ -309,6 +309,40 @@ function populate(s1,s2)
     	s2.options.add(newOption);
 	}
 }
+function validate(){
+	var illness= document.forms["reg"]["illness"];
+	var hosname= document.forms["reg"]["hosname"];
+	var appdate= document.forms["reg"]["appdate"];
+	var days= document.forms["reg"]["days"];
+	var pres= document.forms["reg"]["pres"];
+	
+	if(illness.value==""){
+		window.alert("please select the illness");
+		illness.focus();
+		return false;
+	}
+	if(hosname.value== ""){
+		window.alert("please select the hospital name");
+		hosname.focus();
+		return false;
+	}if(appdate.value== ""){
+		window.alert("please select the appointment date");
+		appdate.focus();
+		return false;
+	}if(days.value== ""){
+		window.alert("please select the number of days");
+		days.focus();
+		return false;
+	}if(pres.value== ""){
+		window.alert("please enter the some prescription");
+		pres.focus();
+		return false;
+	}
+	
+}
+
 </script>
 </body>
 </html>
+
+
