@@ -201,7 +201,7 @@ function validate()
         phone.focus();
         return false;
     }
-    if (email.value == "") {
+    if ((email.value != "@") && (email.value != ".")) {
         window.alert("Please enter valid Email");
         email.focus();
         return false;
@@ -216,3 +216,4 @@ function validate()
 </script>
 </body>
 </html>
+
