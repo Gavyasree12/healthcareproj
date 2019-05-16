@@ -228,7 +228,7 @@ margin-top: 400px:
  out.print(name);}
  else
  {}%></a></b>
- <form action="#dsf"  method="post" >
+ <form action="Outpatientserv"  method="post" >
   <div class="form">
      <center><h3>Payment Form</h3></center>
      <center><h4>Consulting Fees: $5</h4></center>
@@ -241,7 +241,7 @@ margin-top: 400px:
     </br>
    
     <div class="clearfix">
-     <button type="submit">Book Appointment</button>
+     <button type="submit" value="paypat" name="action">Book Appointment</button>
       
     </div>
     </div>

@@ -192,7 +192,7 @@ filter: blur(8px);
   z-index: 1;
   background: #FFFFFF;
   max-width: 500px;
-  margin: 0 300px;
+  margin: 0 230px;
   padding: 50px;
   text-align: left;
   color:gray;
@@ -225,12 +225,12 @@ out.print(username);
   <li><a href="#dsd">Our Services</a></li>
  <li><a href="#Login" >About us</a></li>	
  </ul>
- <form action="#fdf" method="post">
+ <form action="Outpatientserv" method="post">
   <div class="form">
      
      <center><h3>Out-Patient Appointment Form</h3></center>
     Choose PAT Symptoms:
-<select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+<select id="slct1" name="symptoms" onchange="populate(this.id,'slct2')">
   <option value=""></option>
   <option value="Fever">Fever,Cold</option>
   <option value="EYE INCIPIENT">Eye Incipients</option>
@@ -242,18 +242,18 @@ out.print(username);
 </select>
 <br>
 Choose DOC Name:
-<select type="text" id="slct2" name="slct2"></select>
+<select type="text" id="slct2" name="docname"></select>
 
 <br>
     
-    Appointment Date:<input type="text" name="" id="org">
+    Appointment Date:<input type="text" name="appdate" id="org">
     <br>
-	Appointment Time:<input type="text" name="" id="app">
+	Appointment Time:<input type="text" name="apptime" id="app">
 	<br>
 	
-	Description about Symptoms:<input type="text" name="">
+	Description about Symptoms:<input type="text" name="docdesc">
 	
-	<button type="submit" class="">Proceed to Payment</button>
+	<button type="submit" name="action" value="outpat">Proceed to Payment</button>
 	
   </div>
   
@@ -281,32 +281,32 @@ Choose DOC Name:
   if(s1.value == "Fever")
   {
    
-   var optionArray = ["|","aravind|Dr.A.Aravind.,MBBS","Varthan|Dr.Varthan.,MBBS","kowshik|Dr.kowshik.,MBBS","kowshik|Dr.N.Niranjanadevi.,MBBS","aravind|Dr.S Manojprabhakar.,MBBS"];
+   var optionArray = ["|","Dr.A.Aravind|Dr.A.Aravind.,MBBS","Dr.Varthan|Dr.Varthan.,MBBS","Dr.kowshik|Dr.kowshik.,MBBS","Dr.N.Niranjanadevi|Dr.N.Niranjanadevi.,MBBS","Dr.S Manojprabhakar|Dr.S Manojprabhakar.,MBBS"];
   }
   else if(s1.value == "EYE INCIPIENT")
   {
-   var optionArray = ["|","dass|Dr.Dass.,Dip in OD","abhi|Dr.M.Abhi.,MBBS,OD","Balaji|Dr.Balaji.,MBBS,NSC,OD","Balaji|Dr.V.VIJAYALAKSHMI.,MBBS,OD","Balaji|Dr.G.SELVAN.,MBBS"];
+   var optionArray = ["|","Dr.Dass|Dr.Dass.,Dip in OD","Dr.M.Abhi|Dr.M.Abhi.,MBBS,OD","Dr.Balaji|Dr.Balaji.,MBBS,NSC,OD","Dr.V.VIJAYALAKSHMI|Dr.V.VIJAYALAKSHMI.,MBBS,OD","Dr.G.SELVAN|Dr.G.SELVAN.,MBBS"];
   }
   else if(s1.value == "Cardiac Attack")
   {
-   var optionArray = ["|","hfhg|Dr.M.Sampath Kumar.,MBBS,MD,DM,FIC","Parthuysa|Dr.L.Parthuysa.,MBBS","Parthuysa|Dr.L.Lavanya.,MBBS,MD","simthy|Dr.S.Smithy.,MBBS,DM,FIC","simthy|Dr.S.Aravinth.,MBBS,DM,FIC"];
+   var optionArray = ["|","Dr.M.Sampath Kumar|Dr.M.Sampath Kumar.,MBBS,MD,DM,FIC","Dr.L.Parthuysa|Dr.L.Parthuysa.,MBBS","Dr.L.Lavanya|Dr.L.Lavanya.,MBBS,MD","Dr.S.Smithy|Dr.S.Smithy.,MBBS,DM,FIC","Dr.S.Aravinth|Dr.S.Aravinth.,MBBS,DM,FIC"];
   }
   else if(s1.value == "Stomach Pain")
   {
-   var optionArray = ["|","dass|Dr.N.Sumanth,Dip in OD,M.D","abhi|Dr.M.SEKAR.,MBBS,OD,MD","Balaji|Dr.B.SANKAR.,MBBS,OD","Balaji|Dr.V.SivaRaman.,MBBS","Balaji|Dr.G.BALAMURGAN.,MBBS"];
+   var optionArray = ["|","Dr.N.Sumanth|Dr.N.Sumanth,Dip in OD,M.D","Dr.M.SEKAR|Dr.M.SEKAR.,MBBS,OD,MD","Dr.B.SANKAR|Dr.B.SANKAR.,MBBS,OD","Dr.V.SivaRaman|Dr.V.SivaRaman.,MBBS","Dr.G.BALAMURGAN|Dr.G.BALAMURGAN.,MBBS"];
   } else if(s1.value == "Allergies")
   {
-   var optionArray = ["|","dass|Dr.D.C.Gupta.,MBBS,DC","abhi|Dr.S.VELAN.,MBBS,OD","Balaji|Dr.B.PRIYANSA.,MBBS,MD","Balaji|Dr.V.VIJAY.,MBBS","Balaji|Dr.G.VARNITH.,MBBS"];
+   var optionArray = ["|","Dr.D.C.Gupta|Dr.D.C.Gupta.,MBBS,DC","Dr.S.VELAN|Dr.S.VELAN.,MBBS,OD","Dr.B.PRIYANSA|Dr.B.PRIYANSA.,MBBS,MD","Dr.V.VIJAY|Dr.V.VIJAY.,MBBS","Dr.G.VARNITH|Dr.G.VARNITH.,MBBS"];
   } else if(s1.value == "Headache")
   {
-   var optionArray = ["|","dass|Dr.Vipin Kumar.,MBBS","abhi|Dr.Arun Agarwal.,MBBS,MD","Balaji|Dr.Balaji.,MBBS,NSC,OD","Balaji|Dr.G.Pushkar.,MBBS, MD, DM","Balaji|Dr.Ibraheem.,MBBS"];
+   var optionArray = ["|","Dr.Vipin Kumar|Dr.Vipin Kumar.,MBBS","Dr.Arun Agarwal|Dr.Arun Agarwal.,MBBS,MD","Dr.Balaji|Dr.Balaji.,MBBS,NSC,OD","Dr.G.Pushkar|Dr.G.Pushkar.,MBBS, MD, DM","Dr.Ibraheem|Dr.Ibraheem.,MBBS"];
   } else if(s1.value == "BodyPain")
   {
-   var optionArray = ["|","dass|Dr.Madhu Nahar Roy.,MBBS","abhi|Dr.Ravikant Porwal.,MBBS,MD","Balaji|Dr.Himashu Nautiyal.,MBBS,NSC,OD","Balaji|Dr.Dr.Mishra.,MBBS,MD","Balaji|Dr.S.N.Bagree.,MBBS"];
+   var optionArray = ["|","Dr.Madhu Nahar Roy|Dr.Madhu Nahar Roy.,MBBS","Dr.Ravikant Porwal|Dr.Ravikant Porwal.,MBBS,MD","Dr.Himashu Nautiyal|Dr.Himashu Nautiyal.,MBBS,NSC,OD","Dr.Dr.Mishra|Dr.Dr.Mishra.,MBBS,MD","Dr.S.N.Bagree|Dr.S.N.Bagree.,MBBS"];
   } else if(s1.value == "Minor Injuries")
   {
-   var optionArray = ["|","dass|Dr.Rima.,MBBS,DNB","abhi|Dr.Vinny.,MBBS,MD","Balaji|Dr.Amit Srivastava.,MBBS,OD","Balaji|Dr.Rahul Jain.,MBBS,MD","Balaji|Dr.Shamsher Dwivedee.,MBBS"];
-  }
+   var optionArray = ["|","Dr.Rima|Dr.Rima.,MBBS,DNB","Dr.Vinny|Dr.Vinny.,MBBS,MD","Dr.Amit Srivastava|Dr.Amit Srivastava.,MBBS,OD","Dr.Rahul Jain|Dr.Rahul Jain.,MBBS,MD","Dr.Shamsher Dwivedee|Dr.Shamsher Dwivedee.,MBBS"];
+  } 
   for(var option in optionArray)
   {
    var pair = optionArray[option].split("|");
