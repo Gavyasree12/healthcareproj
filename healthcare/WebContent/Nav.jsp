@@ -174,9 +174,9 @@ filter: grayscale(100%);
             </h1>
             <span class="border"></span>
             <div class="ps">               
-               <a href="#p1" >In-Patient</a>
-               <a href="#p2" >Out-Patient</a>
-               <a href="#p2" >Emergency</a>
+               <a href="Inpatient.jsp" >In-Patient</a>
+               <a href="outpatient.jsp" >Out-Patient</a>
+               <a href="Emeroption.jsp" >Emergency</a>
                
             </div>
          
