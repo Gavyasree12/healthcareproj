@@ -82,7 +82,7 @@ public class Regserv extends HttpServlet {
         stat.setString(9, userid);
         stat.setString(10, password);
         stat.executeUpdate();
-        stat.executeUpdate();
+       
          request.getRequestDispatcher("change.jsp").include(request,response);        
          out.println("<html><body>");
          out.println("<script type=\"text/javascript\">");

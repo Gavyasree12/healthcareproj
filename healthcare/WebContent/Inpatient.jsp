@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,70 +16,69 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 body
 {
-	margin:0 auto 0;
-	background-image: url("./img/blue.jpg");
+    margin:0 auto 0;
+    background-image: url("./img/blue.jpg");
 background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
  
-	padding:0;
-	font-family: sans-serif;
+    padding:0;
+    font-family: sans-serif;
 }
 nav
 {
-	position: relative;
-	top:0;
-	left:0;
-	width:100%;
-	height:100px;
-	padding: 10px 100px;
-	box-sizing: border-box;
-	transition: .5%;
-	
-	
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+    transition: .5%;
+    
+    
 }
-
 nav .logo img
 {
-	margin-left: -60px;
-	height: 100px;
-	transition: .5%;
-	
+    margin-left: -60px;
+    height: 100px;
+    transition: .5%;
+    
 }
 nav ul
 {
-	
-	float:right;
-	margin: 0;
-	padding:0;
-	display:flex;
-	
+    
+    float:right;
+    margin: 0;
+    padding:0;
+    display:flex;
+    
 }
 nav ul li
 {
-	list-style:none;
-	margin: 10px;
+    list-style:none;
+    margin: 10px;
 }
 nav ul li a
 {
-	line-height: 80px;
-	color: #fff;
-	padding: 5px 20px;
-	background-color: rgba(0,0,0,0.4);
-	font-family: 'Roboto', sans-serif;
-	text-decoration:none;
-	text-transform: uppercase;
-	transition: .5%;
-	border:none;
-	border-color: none;
-	border-radius: 4px;
+    line-height: 80px;
+    color: #fff;
+    padding: 5px 20px;
+    background-color: rgba(0,0,0,0.4);
+    font-family: 'Roboto', sans-serif;
+    text-decoration:none;
+    text-transform: uppercase;
+    transition: .5%;
+    border:none;
+    border-color: none;
+    border-radius: 4px;
 }
 nav ul li a:hover
 {
-	color: #000;
-	background: white;
-	
+    color: #000;
+    background: white;
+    
 }
 select,input[type=text],input[type=address], input[type=password], input[type=number],input[type=date] {
   width: 100%;
@@ -172,7 +171,7 @@ filter: blur(8px);
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
   .cancelbtn, .signupbtn {
- 	width: 100%;
+     width: 100%;
   }
 }
 .foot{
@@ -190,13 +189,13 @@ out.print(username);
 <li>  <a href="#home" class="active">Home</a></li>
   <li><a href="#band" >Your Appointments</a></li>
   <li><a href="#dsd">Our Services</a></li>
- <li><a href="#Login" >About us</a></li>	
+ <li><a href="#Login" >About us</a></li>    
  </ul>
- <form action="Regserv" onsubmit="return validate()" name="reg" method="post">
+ <form action="Inpatserv" onsubmit="return validate()" name="reg" method="post">
   <div class="form">
- 	<center><h3>In-Patient Appointment Form</h3></center>
-	
-	Choose PAT illness:
+     <center><h3>In-Patient Appointment Form</h3></center>
+    
+    Choose PAT illness:
 <select id="slct1" name="illness" onchange="populate(this.id,'slct2')">
   <option value=""></option>
   <option value="Orthopaedic">Orthopedics </option>
@@ -211,11 +210,11 @@ out.print(username);
 <br>
 Choose Hospital Name:
 <select id="slct2" name="hosname"></select>
-	
-	Appointment Date:<input type="text" name="appdate" id="org">
-	<br>
-	Select the number of days:
-	<select name="days">
+    
+    Appointment Date:<input type="text" name="appdate" id="org">
+    <br>
+    Select the number of days:
+    <select name="days">
   <option value=""></option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -232,12 +231,12 @@ Choose Hospital Name:
    Prescription(operation) Details:
    <input type="text" name="pres">
    <br>
-   <button type="submit" class="">Proceed to Payment</button>
-	</div>
+   <button type="submit" value="inpat" name="action"class="">Proceed to Payment</button>
+    </div>
 </div>
  
 </form>
-    	</div>
+        </div>
  </div>
 </nav>
 <div class="foot">
@@ -254,93 +253,92 @@ Choose Hospital Name:
 </div>
  <script>
 $(document).ready (function(){
-	$("#org").datepicker({
-    	
-    	minDate: 0,
-    	dateFormat:'dd/mm/yy',
-    	maxDate: 10
-    	
-	})
+    $("#org").datepicker({
+        
+        minDate: 0,
+        dateFormat:'dd/mm/yy',
+        maxDate: 10
+        
+    })
 })
 function populate(s1,s2)
 {
-	var s1 = document.getElementById(s1);
-	var s2 = document.getElementById(s2);
-	s2.innerHTML = " ";
-	if(s1.value == "Orthopaedic")
-	{
-    	
-    	var optionArray = ["|","Chennai Orthopaedic Hospital|Chennai Orthopaedic Hospital","Vijay Multispeciality Hospital|Vijay Multispeciality Hospital","Nirmala Multi-speciality Hospital|Nirmala Multi-speciality Hospital","Apallo Orthopaedic General Hospital|Apallo Orthopaedic General Hospital"];
-	}
-	else if(s1.value == "Blood Cancer")
-	{
-    	var optionArray = ["|","Coimbatore Multispeciality Hospital|Coimbatore Multispeciality Hospital","M.Abhi Blood Cancer Hospital|M.Abhi Blood Cancer Hospital","Dharamshila Superspeciality Hospital|Dharamshila Superspeciality Hospital","B.R.A Institute-Rotary Cancer Hospital|B.R.A Institute-Rotary Cancer Hospital"];
-	}
-	else if(s1.value == "Lung Cancer")
-	{
-    	var optionArray = ["|","Apollo Health City|Apollo Health City","American Oncology Institute|American Oncology Institute","Omega Hospital|Omega Hospital","Yashoda Superspeciality Hospital|Yashoda Superspeciality Hospital"];
-	}
-	else if(s1.value == "Bone Marrow")
-	{
-    	var optionArray = ["|","KMCH Speciality Hospital|KMCH Speciality Hospital","Sudha Bone Marrow Transplant Hospitals|Sudha Bone Marrow Transplant Hospitals","Arun Bone Diseases specialists Hospital|Arun Bone Diseases specialists Hospital","Arun orthopedic hospital|Arun orthopedic hospital"];
-	}
-	else if(s1.value == "Open Heart Surgeries")
-	{
-    	var optionArray = ["|","Lotus Hospital|Lotus Hospital","Nova Speciality Hospitals|Nova Speciality Hospitals","Amulya Cosmetic Surgery Clinic|Amulya Cosmetic Surgery Clinic","Indraprastha Apollo Hospital|Indraprastha Apollo Hospital"];
-	}
-	else if(s1.value == "Kidney")
-	{
-    	var optionArray = ["|","Bhatia Global Hospital & Endosurgery Hospital|Bhatia Global Hospital & Endosurgery Hospital","Preeth Urology & Kidney Hospital|Preeth Urology & Kidney Hospital","Aephrous Plus Kidney Hospital|Aephrous Plus Kidney Hospital","Sreedhar Kidney Multi-Speciality Hospital-ER|Sreedhar Kidney Multi-Speciality Hospital-ER"];
-	}
-	else if(s1.value == "Brain Surgeries")
-	{
-    	var optionArray = ["|","PARAS BRAIN NEUROSURGERY HOSPITAL|PARAS BRAIN NEUROSURGERY HOSPITAL","BRAHM SHAKTI HOSPITAL & RESEARCH CENTRE|BRAHM SHAKTI HOSPITAL & RESEARCH CENTRE","INDIAN SPINAL INJURIES CENTRE|INDIAN SPINAL INJURIES CENTRE","LOS-ANGEL Brain Neurosurgery Hospital Hydrabad|LOS-ANGEL Brain Neurosurgery Hospital Hydrabad"];
-	}
-	else if(s1.value == "Thyroid")
-	{
-    	var optionArray = ["|","Fortis Flt. Lt. Rajan Dhall Hospital|Fortis Flt. Lt. Rajan Dhall Hospital","Thyroidectomy Surgery Hospital|Thyroidectomy Surgery Hospital","Viezec Medical Health Care|Viezec Medical Health Care","KIMS Multi-Speciality Hospital|KIMS Multi-Speciality Hospital"];
-	}
-	for(var option in optionArray)
-	{
-    	var pair = optionArray[option].split("|");
-    	var newOption = document.createElement("option");
-    	newOption.value = pair[0];
-    	newOption.innerHTML = pair[1];
-    	s2.options.add(newOption);
-	}
+    var s1 = document.getElementById(s1);
+    var s2 = document.getElementById(s2);
+    s2.innerHTML = " ";
+    if(s1.value == "Orthopaedic")
+    {
+        
+        var optionArray = ["|","Chennai Orthopaedic Hospital|Chennai Orthopaedic Hospital","Vijay Multispeciality Hospital|Vijay Multispeciality Hospital","Nirmala Multi-speciality Hospital|Nirmala Multi-speciality Hospital","Apallo Orthopaedic General Hospital|Apallo Orthopaedic General Hospital"];
+    }
+    else if(s1.value == "Blood Cancer")
+    {
+        var optionArray = ["|","Coimbatore Multispeciality Hospital|Coimbatore Multispeciality Hospital","M.Abhi Blood Cancer Hospital|M.Abhi Blood Cancer Hospital","Dharamshila Superspeciality Hospital|Dharamshila Superspeciality Hospital","B.R.A Institute-Rotary Cancer Hospital|B.R.A Institute-Rotary Cancer Hospital"];
+    }
+    else if(s1.value == "Lung Cancer")
+    {
+        var optionArray = ["|","Apollo Health City|Apollo Health City","American Oncology Institute|American Oncology Institute","Omega Hospital|Omega Hospital","Yashoda Superspeciality Hospital|Yashoda Superspeciality Hospital"];
+    }
+    else if(s1.value == "Bone Marrow")
+    {
+        var optionArray = ["|","KMCH Speciality Hospital|KMCH Speciality Hospital","Sudha Bone Marrow Transplant Hospitals|Sudha Bone Marrow Transplant Hospitals","Arun Bone Diseases specialists Hospital|Arun Bone Diseases specialists Hospital","Arun orthopedic hospital|Arun orthopedic hospital"];
+    }
+    else if(s1.value == "Open Heart Surgeries")
+    {
+        var optionArray = ["|","Lotus Hospital|Lotus Hospital","Nova Speciality Hospitals|Nova Speciality Hospitals","Amulya Cosmetic Surgery Clinic|Amulya Cosmetic Surgery Clinic","Indraprastha Apollo Hospital|Indraprastha Apollo Hospital"];
+    }
+    else if(s1.value == "Kidney")
+    {
+        var optionArray = ["|","Bhatia Global Hospital & Endosurgery Hospital|Bhatia Global Hospital & Endosurgery Hospital","Preeth Urology & Kidney Hospital|Preeth Urology & Kidney Hospital","Aephrous Plus Kidney Hospital|Aephrous Plus Kidney Hospital","Sreedhar Kidney Multi-Speciality Hospital-ER|Sreedhar Kidney Multi-Speciality Hospital-ER"];
+    }
+    else if(s1.value == "Brain Surgeries")
+    {
+        var optionArray = ["|","PARAS BRAIN NEUROSURGERY HOSPITAL|PARAS BRAIN NEUROSURGERY HOSPITAL","BRAHM SHAKTI HOSPITAL & RESEARCH CENTRE|BRAHM SHAKTI HOSPITAL & RESEARCH CENTRE","INDIAN SPINAL INJURIES CENTRE|INDIAN SPINAL INJURIES CENTRE","LOS-ANGEL Brain Neurosurgery Hospital Hydrabad|LOS-ANGEL Brain Neurosurgery Hospital Hydrabad"];
+    }
+    else if(s1.value == "Thyroid")
+    {
+        var optionArray = ["|","Fortis Flt. Lt. Rajan Dhall Hospital|Fortis Flt. Lt. Rajan Dhall Hospital","Thyroidectomy Surgery Hospital|Thyroidectomy Surgery Hospital","Viezec Medical Health Care|Viezec Medical Health Care","KIMS Multi-Speciality Hospital|KIMS Multi-Speciality Hospital"];
+    }
+    for(var option in optionArray)
+    {
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        s2.options.add(newOption);
+    }
 }
 function validate(){
-	var illness= document.forms["reg"]["illness"];
-	var hosname= document.forms["reg"]["hosname"];
-	var appdate= document.forms["reg"]["appdate"];
-	var days= document.forms["reg"]["days"];
-	var pres= document.forms["reg"]["pres"];
-	
-	if(illness.value==""){
-		window.alert("please select the illness");
-		illness.focus();
-		return false;
-	}
-	if(hosname.value== ""){
-		window.alert("please select the hospital name");
-		hosname.focus();
-		return false;
-	}if(appdate.value== ""){
-		window.alert("please select the appointment date");
-		appdate.focus();
-		return false;
-	}if(days.value== ""){
-		window.alert("please select the number of days");
-		days.focus();
-		return false;
-	}if(pres.value== ""){
-		window.alert("please enter the some prescription");
-		pres.focus();
-		return false;
-	}
-	
+    var illness= document.forms["reg"]["illness"];
+    var hosname= document.forms["reg"]["hosname"];
+    var appdate= document.forms["reg"]["appdate"];
+    var days= document.forms["reg"]["days"];
+    var pres= document.forms["reg"]["pres"];
+    
+    if(illness.value==""){
+        window.alert("please select the illness");
+        illness.focus();
+        return false;
+    }
+    if(hosname.value== ""){
+        window.alert("please select the hospital name");
+        hosname.focus();
+        return false;
+    }if(appdate.value== ""){
+        window.alert("please select the appointment date");
+        appdate.focus();
+        return false;
+    }if(days.value== ""){
+        window.alert("please select the number of days");
+        days.focus();
+        return false;
+    }if(pres.value== ""){
+        window.alert("please enter the some prescription");
+        pres.focus();
+        return false;
+    }
+    
 }
-
 </script>
 </body>
 </html>

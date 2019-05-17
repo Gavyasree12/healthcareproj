@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -75,9 +75,9 @@ nav ul li a:hover
  
 }
 *{
-	margin: 0;
-	padding: 0;
-	font-family: century Gothic;
+    margin: 0;
+    padding: 0;
+    font-family: century Gothic;
 }
 select, input[type=text],input[type=address], input[type=password], input[type=number],input[type=date] {
   width: 100%;
@@ -171,7 +171,7 @@ filter: blur(8px);
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
   .cancelbtn, .signupbtn {
- 	width: 100%;
+     width: 100%;
   }
 }
 .foot
@@ -179,23 +179,23 @@ filter: blur(8px);
 margin-top: 400px:
 }
 .section{ 
-	width: 600px;
-	margin: auto;
-	font-size: 20px;
-	color:white;
-	text-align: justify;
-	height:0;
-	overflow: hidden;
+    width: 600px;
+    margin: auto;
+    font-size: 20px;
+    color:white;
+    text-align: justify;
+    height:0;
+    overflow: hidden;
 }
 .section:target{
-	height:auto;
+    height:auto;
 }
 .name{
-	display: block;
-	margin-bottom: 20px;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 22px;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
 }
 </style>
 </head>
@@ -215,22 +215,23 @@ margin-top: 400px:
  out.print(name);}
  else
  {}%></a></b>
- <form action="#dsf"  method="post" >
+ <form action="Payinserv"  method="post" >
   <div class="form">
- 	<center><h3>Payment Form</h3></center>
- 	<center><h4>Admission charges: <%/* calculate the amount and display  */%>-Rs.1000 per day--</h4></center>
-	
+     <center><h3>Payment Form</h3></center>
+     <center><h4>Admission charges:</h4><h5><br>Bed charges: Rs.1000 per day <br>Tax: Rs.250<br>Maintaince Fee: Rs.500<br>Net Amount: <%=request.getAttribute("days") %></h4></center>
+    
  
-	<input type="text" placeholder="Enter your credit card number" name="ccnum">
-	</br>
-	<input type="text" placeholder="Enter CVV" name="cvv">
-	</br>
+    <input type="text" placeholder="Enter your credit card number" name="ccnum">
+    </br>
+    <input type="text" placeholder="Enter CVV" name="cvv">
+    </br>
+   <input type="hidden" name="hidays" value="">
   
-	<div class="clearfix">
- 	<button type="submit">Book Appointment</button>
-  	
-	</div>
-	</div>
+    <div class="clearfix">
+     <button type="submit" value="payinpat" name="action">Book Appointment</button>
+      
+    </div>
+    </div>
  
 </form>
  </div>
@@ -250,5 +251,3 @@ margin-top: 400px:
 </footer>
 </body>
 </html>
-
-
