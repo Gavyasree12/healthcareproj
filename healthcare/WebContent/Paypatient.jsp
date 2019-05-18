@@ -228,10 +228,10 @@ margin-top: 400px:
  out.print(name);}
  else
  {}%></a></b>
- <form action="Outpatientserv"  method="post" >
+ <form action="Payoutpatserv"  method="post" >
   <div class="form">
      <center><h3>Payment Form</h3></center>
-     <center><h4>Consulting Fees: $5</h4></center>
+     <center><h4>Consulting Fees: Rs.200</h4></center>
     
 	
     <input type="text" placeholder="Enter your credit card number" name="ccnum">

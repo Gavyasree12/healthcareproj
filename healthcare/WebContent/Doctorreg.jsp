@@ -197,11 +197,15 @@ function validate()
 		phone.focus();
 		return false;
 	}
-	if (email.value == "") {
-		window.alert("Please enter valid Email");
-		email.focus();
-		return false;
-	}
+	 var email=document.reg.email.value;
+	   var atpos = email.indexOf("@");
+	  var dotpos = email.lastIndexOf(".");
+	  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+	    alert("Not a valid e-mail address");
+	    return false;
+	  }
+
+
 	
 	return true;
 	

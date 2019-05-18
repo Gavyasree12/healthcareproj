@@ -73,7 +73,7 @@ public class Inpatserv extends HttpServlet {
 	             
 	                
 	                
-	            String sql="insert into bhaskar.inpatdet values(?,?,?,?,?,?)";
+	            String sql="insert into sathya.inpatdet values(?,?,?,?,?,?)";
 	            PreparedStatement stat=con.prepareStatement(sql);
 	            System.out.println("hello");
 	            stat.setString(1, illness);

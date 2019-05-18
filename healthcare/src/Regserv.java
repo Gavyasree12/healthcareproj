@@ -69,7 +69,7 @@ public class Regserv extends HttpServlet {
 
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
-        String sql="insert into bhaskar.patientdet values(?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into sathya.patientdet values(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stat=con.prepareStatement(sql);
         stat.setString(1, fname);
         stat.setString(2, lname);    

@@ -49,7 +49,7 @@ public class Changeserv extends HttpServlet {
 	        	DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
 	            Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
 	            Statement stmt = con.createStatement();
-	            ResultSet rs =stmt.executeQuery("select * from bhaskar.patientdet where userid='"+userid+"' and password='"+cpass+"' ");	
+	            ResultSet rs =stmt.executeQuery("select * from sathya.patientdet where userid='"+userid+"' and password='"+cpass+"' ");	
 	        
 	        if(password1.contentEquals(password))
 	        {
@@ -57,7 +57,7 @@ public class Changeserv extends HttpServlet {
 	            
 	            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
 	            Connection con1=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
-	            String sql="update bhaskar.patientdet set password='"+password1+"' where userid='"+userid+"' ";
+	            String sql="update sathya.patientdet set password='"+password1+"' where userid='"+userid+"' ";
 	            PreparedStatement stat=con1.prepareStatement(sql);
 	            stat.executeUpdate();
 	            request.getRequestDispatcher("Login.jsp").include(request,response);

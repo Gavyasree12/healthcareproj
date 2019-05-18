@@ -174,15 +174,19 @@ margin-top: 700px;
 <body>
 <nav>
 <div class="logo">
-<img src="./img/logo2.png"><a href="#dsd"><% String username=request.getParameter("fname");
-out.print(username);
-%></a>
+<img src="./img/logo2.png">
 <ul>
 <li>  <a href="#home" class="active">Home</a></li>
   <li><a href="#band" >Your Appointments</a></li>
   <li><a href="#dsd">Our Services</a></li>
- <li><a href="#Login" >About us</a></li>	
+ <li><a href="Logoutserv" >Logout</a></li>
  </ul>
+ <b><a href="#dsf"><% HttpSession sessio=request.getSession(false); 
+ if(sessio!=null){ 
+ String name=(String)sessio.getAttribute("userid"); 
+ out.print(name);}
+ else
+ {}%></a></b>
 <form action="EmergencyDB.jsp" method="post">
   <div class="form">
  	

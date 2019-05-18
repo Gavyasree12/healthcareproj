@@ -55,7 +55,7 @@ public class Loginserv extends HttpServlet {
         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
         Statement stmt = con.createStatement();
 
-        ResultSet rs =stmt.executeQuery("select * from bhaskar.patientdet where userid='"+userid+"' and password='"+password+"' ");
+        ResultSet rs =stmt.executeQuery("select * from sathya.patientdet where userid='"+userid+"' and password='"+password+"' ");
         //request.getRequestDispatcher("Nav.jsp").include(request,response);
         HttpSession session=request.getSession();  
         session.setAttribute("userid",userid);  

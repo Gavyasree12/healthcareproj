@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Outpatientserv
@@ -61,10 +62,9 @@ public class Outpatientserv extends HttpServlet {
             Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
            
 
-        if("outpat".equals(request.getParameter("action")))   
-        {
+        
         Statement stmt = con.createStatement();
-        ResultSet rs =stmt.executeQuery("select status from bhaskar.datatab where fname='"+docname+"' and appdate='"+appdate+"' and apptime='"+apptime+"'");
+        ResultSet rs =stmt.executeQuery("select status from sathya.datatab where fname='"+docname+"' and appdate='"+appdate+"' and apptime='"+apptime+"'");
         System.out.println("hello");
         String va="";
         while(rs.next())
@@ -86,15 +86,16 @@ public class Outpatientserv extends HttpServlet {
         else
         {
         	request.getRequestDispatcher("Paypatient.jsp").include(request,response);	
-        }
-        }
         
-        else if("paypat".equals(request.getParameter("action")))
-        {
-        	
+        
+        	HttpSession sessio=request.getSession(false);  
+        	 if(sessio!=null){  
+        	 String name=(String)sessio.getAttribute("userid");  
+        	 
         Random random=new Random();
-        String appid="App"+random;
-        String sql="insert into bhaskar.outpatient values(?,?,?,?,?,?)";
+        int rand=random.nextInt(999);
+        String appid="App"+rand;
+        String sql="insert into sathya.outpatient values(?,?,?,?,?,?,?)";
         PreparedStatement stat=con.prepareStatement(sql);
         System.out.println(appid);
         stat.setString(1, symptoms);
@@ -103,8 +104,9 @@ public class Outpatientserv extends HttpServlet {
         stat.setString(4, apptime);
         stat.setString(5, docdesc);
         stat.setString(6, appid);
+        stat.setString(7, name);
         stat.executeUpdate();
-        String sql1="insert into bhaskar.datatab values(?,?,?,?)";
+        String sql1="insert into sathya.datatab values(?,?,?,?)";
         PreparedStatement sta=con.prepareStatement(sql1);
        
         sta.setString(1, docname);    
@@ -120,12 +122,12 @@ public class Outpatientserv extends HttpServlet {
         
         }
                  
-        }catch(Exception e)
+        }}catch(Exception e)
         {
             e.printStackTrace();
         }    
-    }
-}
+    }}
+
 
 		
 	

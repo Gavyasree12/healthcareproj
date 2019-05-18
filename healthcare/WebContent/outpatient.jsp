@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>B-APS</title>
+<title>Health care</title>
 
 <!-- <link rel="stylesheet" href="./style/about.css" > -->
 
@@ -216,15 +216,19 @@ margin-top: 500px:
 <body>
 <nav>
 <div class="logo">
-<img src="./img/logo2.png"><a href="#dsd"><% String username=request.getParameter("fname");
-out.print(username);
-%></a>
+<img src="./img/logo2.png">
 <ul>
 <li>  <a href="#home" class="active">Home</a></li>
   <li><a href="#band" >Your Appointments</a></li>
   <li><a href="#dsd">Our Services</a></li>
- <li><a href="#Login" >About us</a></li>	
+ <li><a href="Logoutserv" >Logout</a></li>
  </ul>
+ <b><a href="#dsf"><% HttpSession sessio=request.getSession(false);  
+ if(sessio!=null){  
+ String name=(String)sessio.getAttribute("userid");  
+ out.print(name);}
+ else
+ {}%></a></b>
  <form action="Outpatientserv" onsubmit="return validation()" name="op" method="post">
   <div class="form">
      

@@ -34,6 +34,40 @@ input[type=text]:focus, input[type=password]:focus,input[type=address]:focus,inp
   border-radius:20px;
   border:none;
 }
+select{
+background-color: #F5A262;
+  outline: none;
+  border-radius:20px;
+  border:none;
+
+}
+option{
+width: 100%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #C1C1C1;
+  border-radius:20px;
+  border:none;
+}
+select, input[type=text],input[type=address], input[type=password], input[type=number],input[type=date] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #C1C1C1;
+  border-radius:20px;
+  border:none;
+}
+
+select:focus, input[type=text]:focus, input[type=password]:focus,input[type=address]:focus,input[type=number]:focus {
+  background-color: #F5A262;
+  outline: none;
+  border-radius:20px;
+  border:none;
+}
 
 text area{
 border-radius:10px;
@@ -153,7 +187,18 @@ margin-top:-20px;
     </br>
     <input type="text" placeholder="Enter Email" name="email" >
     </br>   
-    <input type="text" placeholder="Enter Blood group" name="bg" >
+    <select type="text" name="bg">
+    <option>Blood Group</option>
+    <option value="O+ve">O+ve</option>
+        <option value=Aa+ve">A+ve</option>
+        <option value="B+ve">B+ve</option>    
+        <option value="AB+ve">AB+ve</option>
+        <option value="O-ve">O-ve</option>
+        <option value="A-ve">A-ve</option>
+        <option value="B-ve">B-ve</option>
+        <option value="AB-ve">AB-ve</option>
+            
+        </select>
     </br>
      <input type="address" placeholder="Enter Address" name="addr" >
     </br>
@@ -177,8 +222,9 @@ function validate()
     var lname = document.forms["reg"]["lname"];
     var dob = document.forms["reg"]["dob"];
     var phone = document.forms["reg"]["phone"];
-    var email=document.forms["reg"]["email"];
+    
     var addr=document.forms["reg"]["addr"];
+    var bg = document.forms["reg"]["bg"];
     
     
     if (fname.value == "") {
@@ -201,19 +247,29 @@ function validate()
         phone.focus();
         return false;
     }
-  /*   if ((email.value != "@") && (email.value != ".")) {
-        window.alert("Please enter valid Email");
-        email.focus();
-        return false;
-    } */
+    var email=document.reg.email.value;
+   var atpos = email.indexOf("@");
+  var dotpos = email.lastIndexOf(".");
+  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+    alert("Not a valid e-mail address");
+    return false;
+  }
+
     if (addr.value == "") {
         window.alert("Please enter the Address");
         addr.focus();
         return false;
     }
-        return true;
+    if(bg.value == ""){
+        window.alert("Please select the Blood group");
+        bg.focus();
+        return false;
+    }
+       return true;
     }
 </script>
 </body>
 </html>
+
+
 

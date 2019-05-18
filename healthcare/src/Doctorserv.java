@@ -60,7 +60,7 @@ public class Doctorserv extends HttpServlet {
 		System.out.println(userid+" "+password);
 		DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
 		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
-		String sql="insert into bhaskar.doctdet values(?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into sathya.doctdet values(?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement stat=con.prepareStatement(sql);
 		stat.setString(1, fname);
 		stat.setString(2, lname);	

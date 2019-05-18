@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.sql.*"%>
+    pageEncoding="ISO-8859-1" import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,69 +12,69 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 body
 {
-	margin:0 auto 0;
-	background-image: url("./img/bg1.jpg");
+    margin:0 auto 0;
+    background-image: url("./img/bg1.jpg");
 background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
  
-	padding:0;
-	font-family: sans-serif;
+    padding:0;
+    font-family: sans-serif;
 }
 nav
 {
-	position: relative;
-	top:0;
-	left:0;
-	width:100%;
-	height:100px;
-	padding: 10px 100px;
-	box-sizing: border-box;
-	transition: .5%;
-	
-	
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+    transition: .5%;
+    
+    
 }
 
 nav .logo img
 {
-	margin-left: -60px;
-	height: 100px;
-	transition: .5%;
+    margin-left: -60px;
+    height: 100px;
+    transition: .5%;
   filter: drop-shadow(0px 0px 0px white);}
 nav ul
 {
-	
-	float:right;
-	margin: 0;
-	padding:0;
-	display:flex;
-	
+    
+    float:right;
+    margin: 0;
+    padding:0;
+    display:flex;
+    
 }
 nav ul li
 {
-	list-style:none;
-	margin: 10px;
+    list-style:none;
+    margin: 10px;
 }
 nav ul li a
 {
-	line-height: 80px;
-	color: #fff;
-	padding: 5px 20px;
-	background-color: rgba(0,0,0,0.4);
-	font-family: 'Roboto', sans-serif;
-	text-decoration:none;
-	text-transform: uppercase;
-	transition: .5%;
-	border:none;
-	border-color: none;
-	border-radius: 4px;
+    line-height: 80px;
+    color: #fff;
+    padding: 5px 20px;
+    background-color: rgba(0,0,0,0.4);
+    font-family: 'Roboto', sans-serif;
+    text-decoration:none;
+    text-transform: uppercase;
+    transition: .5%;
+    border:none;
+    border-color: none;
+    border-radius: 4px;
 }
 nav ul li a:hover
 {
-	color: #000;
-	background: white;
-	
+    color: #000;
+    background: white;
+    
 }
 select{
   width: 100%;
@@ -164,7 +164,7 @@ td
 @media screen and (max-width: 300px) {
  .search {
  margin-left: 50px;
- 	width: 50%;
+     width: 50%;
   }
 }
 .foot{
@@ -175,15 +175,19 @@ margin-top: 700px;
 <body>
 <nav>
 <div class="logo">
-<img src="./img/logo2.png"><a href="#dsd"><% String username=request.getParameter("fname");
-out.print(username);
-%></a>
+<img src="./img/logo2.png">
 <ul>
 <li>  <a href="#home" class="active">Home</a></li>
   <li><a href="#band" >Your Appointments</a></li>
   <li><a href="#dsd">Our Services</a></li>
- <li><a href="#Login" >About us</a></li>	
+ <li><a href="Logoutserv" >Logout</a></li>
  </ul>
+ <b><a href="#dsf"><% HttpSession sessio=request.getSession(false); 
+ if(sessio!=null){ 
+ String name=(String)sessio.getAttribute("userid"); 
+ out.print(name);}
+ else
+ {}%></a></b>
  <form method="post">
 <table>
 <tr>
@@ -195,6 +199,7 @@ out.print(username);
 <td>Phone</td>
 </tr>
 <%
+String pincode=request.getParameter("pin");
 try
 {
  //Class.forName("oracle.jdbc.driver.OracleDriver()");
@@ -212,35 +217,35 @@ try
  
  Statement st=con.createStatement();
  //String query="Select * from emergencies";
- ResultSet rs=st.executeQuery("Select * from bhaskar.emergency");
+ ResultSet rs=st.executeQuery("Select * from sathya.emergency where pincode='"+pincode+"'");
  while(rs.next())
  {
  %>
- 	<tr>
-            	<td><%out.print(rs.getString(1));%></td>
-            	<td><%out.print(rs.getString(2));%></td>
-            	<td><%out.print(rs.getString(3));%></td>
-            	<td><%out.print(rs.getString(4));%></td>
-            	<td><%out.print(rs.getString(5));%></td>
-            	<td><%out.print(rs.getString(6));%></td>
-         	
-        	</tr>
-     	<%
+     <tr>
+                <td><%out.print(rs.getString(1));%></td>
+                <td><%out.print(rs.getString(2));%></td>
+                <td><%out.print(rs.getString(3));%></td>
+                <td><%out.print(rs.getString(4));%></td>
+                <td><%out.print(rs.getString(5));%></td>
+                <td><%out.print(rs.getString(6));%></td>
+             
+            </tr>
+         <%
  }
  %>
-	</table>
-	<%
-	rs.close();
-	st.close();
-	con.close();
-	}
+    </table>
+    <%
+    rs.close();
+    st.close();
+    con.close();
+    }
 catch(Exception e)
 {
-	e.printStackTrace();
-	}
+    e.printStackTrace();
+    }
 %> 
 </form>
-    	</div>
+        </div>
  </div>
 </nav>
 <div class="foot">
@@ -257,3 +262,4 @@ catch(Exception e)
 </div>
 </body>
 </html>
+
