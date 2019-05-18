@@ -155,11 +155,11 @@ filter: grayscale(100%);
 <body>
 <nav>
 <div class="logo">
-<img src="./img/logo2.png">
+<a href="Nav.jsp"><img src="./img/logo2.png"></a>
 <ul>
-<li>  <a href="#home" class="active">Home</a></li>
+<li>  <a href="Nav.jsp">Home</a></li>
   <li><a href="#band" >Your Appointments</a></li>
-  <li><a href="#dsd">Our Services</a></li>
+  <li><a href="about.jsp">About Us</a></li>
  <li><a href="Logoutserv" >Logout</a></li>
  </ul>
  <b><a href="#dsf"><% HttpSession sessio=request.getSession(false);  
