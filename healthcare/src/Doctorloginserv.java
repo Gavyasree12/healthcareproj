@@ -60,7 +60,7 @@ public class Doctorloginserv extends HttpServlet {
                 
 
         }
-
+//new changes
         else
 
         {
