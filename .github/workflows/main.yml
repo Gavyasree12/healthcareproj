@@ -1,12 +1,12 @@
-name: Build Project
+name: Publish Docker image
 
 on:
   push:
     branches: ['master']
 
 jobs:
-  build:
-    name: Build Java Project
+  push_to_registry:
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -17,10 +17,21 @@ jobs:
         with:
           java-version: 11
       
-      - name: Build with Maven
-        run: mvn clean install
-
-# Define Docker Hub secrets for future use
-secrets:
-  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      # Log in to Docker Hub using the defined secrets
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      
+      # Extract metadata (tags, labels) for Docker (optional)
+      # - name: Extract metadata (tags, labels) for Docker
+      #   id: meta
+      #   uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      #   with:
+      #     images: thetips4you/testjodejsapp
+      
+      # Build and push Docker image (replace context and tags as needed)
+      - name: Build and push Docker image
+        run: |
+          docker build -t yourusername/yourimagename .
+          docker push yourusername/yourimagename
+        env:
+          DOCKER_BUILDKIT: 1
