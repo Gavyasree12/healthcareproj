@@ -1,4 +1,4 @@
-name: project cicd flow2
+name: project cicd flow
 
 on:
   push:
